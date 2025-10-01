@@ -200,17 +200,6 @@ wait
 └── .gitignore       # ignore tmp*
 ```
 
-### .gitignore sugerido
-```
-tmpA/
-tmpB/
-tmpC/
-*.pyc
-__pycache__/
-```
-
----
-
 ## 13) Encerramento
 
 Para finalizar um nó, use `Ctrl+C`. O *shutdown* é limpo e fecha o socket.
