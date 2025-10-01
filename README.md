@@ -113,33 +113,6 @@ python peer.py --me 127.0.0.1:9003 --peers 127.0.0.1:9001,127.0.0.1:9002 --dir t
 
 ---
 
-## 8) Boas práticas para demonstração
-
-- Mostre os **logs de sumário** ao iniciar e após eventos de adicionar/remover.  
-- Tenha um conjunto de **arquivos exemplo** (≥ 2 arquivos pequenos e 1 arquivo > 1MB).  
-- Demonstre um **envio interrompido** (desligue um peer, religue e veja a reconciliação via `LIST`).  
-- Explique por que foi escolhido **UDP** (simples, controle da confiabilidade na aplicação, alinhado ao enunciado).
-
----
-
-## 9) Solução de problemas
-
-### Windows (PowerShell / CMD)
-- **Firewall**: permitir **UDP** nas portas usadas (e aplicativo `python.exe`), ou desativar temporariamente para teste.
-- **ConnectionResetError (WSAECONNRESET)** ao `recvfrom`: o código aplica um *workaround* com `ioctl(0x9800000C)` quando disponível.
-- **Porta em uso**: troque `--me :PORTA` ou finalize processos anteriores.
-
-### Linux
-- **Firewalld/ufw**: liberar portas UDP (`sudo ufw allow 9001/udp`, etc.).  
-- **Permissões**: garanta escrita nas pastas `tmpX`.
-
-### Geral
-- **Nada replica**: confira se todos os peers constam em `--peers` de todos os nós, e se IPs/portas estão corretos.  
-- **Arquivo não aparece**: aguarde o `ANNOUNCE_INTERVAL` (padrão 5s) e confira `SCAN_INTERVAL` (2s).  
-- **SHA256 mismatch**: pode indicar truncamento por perda de pacotes acima do tolerável; teste numa rede local estável ou reduza `CHUNK_SIZE`.
-
----
-
 ## 10) Parâmetros e *tuning*
 
 - `CHUNK_SIZE` (default 8192): tamanho do payload por **DATA**.  
