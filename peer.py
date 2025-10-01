@@ -6,7 +6,7 @@ import time # para temporizações
 import pathlib # para manipulação de caminhos
 import hashlib # para SHA-256
 
-# ====== Constantes de “tunagem” do protocolo ======
+# ====== Constantes de   protocolo ======
 CHUNK_SIZE = 8192          # tamanho de cada pedaço (chunk) ao enviar arquivo
 ACK_TIMEOUT = 0.8          # tempo para esperar um ACK de chunk (segundos)
 MAX_RETRIES = 6            # quantas tentativas de reenvio por chunk
