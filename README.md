@@ -2,7 +2,6 @@
 
 > Trabalho Prático — **Redes de Computadores I** (UDP)  
 > Implementação em **Python 3.9+**, sem bibliotecas de terceiros.  
-> **Entrega/Apresentação:** ver instruções da disciplina.  
 >
 > Este README explica **como executar e testar em dois ambientes** (Windows e Linux), como **validar cada critério de avaliação** e como **diagnosticar problemas**. O código está em `peer.py` (um único arquivo).
 
