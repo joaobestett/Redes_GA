@@ -65,6 +65,7 @@ def encode_ack(name, seq):
 # ====== Classe principal do nó P2P ======
 class Node:
     def __init__(self, me, peers, root: pathlib.Path):
+        self.me = me
         # Endereço deste nó e lista de peers 
         self.peers = [p for p in peers if p != me]
 
