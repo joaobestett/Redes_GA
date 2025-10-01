@@ -90,23 +90,6 @@ python peer.py --me 127.0.0.1:9003 --peers 127.0.0.1:9001,127.0.0.1:9002 --dir t
 4. Confirme replicação para `tmpA` e `tmpB` e depois **remova** o arquivo em `tmpC`. Verifique propagação da remoção.
 5. **Novo peer**: inicie `peer.py` como `--me 0.0.0.0:9004 --peers ... --dir tmpD` e valide que recebe arquivos existentes.
 
----
-
-## 5) O que verificar na apresentação (checklist de avaliação)
-
-1. **Organização da apresentação oral (1)**: explique a arquitetura, mensagens (`LIST`, `GET`, `DEL`, `DATA`, `ACK`), *stop‑and‑wait* e decisões de engenharia.
-2. **Servidor (1)**: recepção de `DATA`, armazenamento, ACK, verificação de SHA256.
-3. **Cliente (1)**: envio de `LIST`, `GET`, `DEL`, transmissão segmentada com *retries* e timeouts.
-4. **Integração C/S (1)**: ambos no mesmo processo via *threads*.
-5. **Adição (1)**: `scanner` detecta novos arquivos e `announcer` divulga via `LIST`.
-6. **Remoção (1)**: `scanner` emite `DEL` e peers executam exclusão.
-7. **Lista de arquivos (1)**: mensagem `LIST|N|name:size:sha;...` e logs com sumário.
-8. **Sumário (1)**: `_log_summary` imprime estado local + peers após eventos.
-9. **Testes em 2 ambientes (1)**: mostrar execução em **Windows** e **Linux** (prints/printscreens ou vídeo curto).
-10. **Adição de novo peer (1)**: subir `--me :9004` com `--peers` apontando para os demais e demonstrar sincronização completa.
-
----
-
 ## 6) Mensagens do protocolo
 
 - `LIST|<n>|name:size:sha;...` — anúncio periódico do índice local.  
